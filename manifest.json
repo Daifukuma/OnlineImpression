@@ -1,12 +1,12 @@
 {
-  "name":"TAP10",
-  "short_name":"TAP10",
+  "name":"印象改善",
+  "short_name":"Online",
   "icons": [{
-      "src": "/icons/icon-192x192.png",
+      "src": "./main/media/clap.png",
       "sizes":"192x192",
       "type": "image/png"
     }, {
-      "src": "/icons/icon-512x512.png",
+      "src": ".main/meidia/icon_happy.png",
       "sizes":"512x512",
       "type": "image/png"
     }],
