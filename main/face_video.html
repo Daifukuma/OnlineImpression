@@ -117,6 +117,10 @@
 		<div id="content">
 			<h2>Smile 判定(2人対話用)</h2>
       <div id="option">
+				<input type="range" value="325" min="300" max="350" step="1"
+					oninput="document.getElementById('output1').value=this.value">
+
+				<output id="output1">325</output>
       </div>
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 			<input type="button" onclick="location.href='./main/face_video1.html'" value="3人以上">
@@ -126,6 +130,7 @@
 				</video>
 				<canvas id="overlay" width="400" height="300"></canvas>
 			</div>
+			<div id="text-button"><p id="text">クリック</p></div>
 			<br/>
 				<div id="nogum" class="nogum">
 					<p>
@@ -160,6 +165,7 @@
 				audio2.src = "./sound/tooclose.mp3";
 				var audio3 = new Audio();
 				audio3.src = "./sound/goodlook.mp3";
+				var facesize = 0;
 
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
@@ -279,19 +285,29 @@
 //					drawStamp(pos, stampclap2, 33, 3.0, 0.0, -1.8);
 					var parameters = ctrack.getCurrentParameters();
 					var emotion = classifier.meanPredict(parameters);
-					var facesize = 0;
+//					var facesize = 0;
 					facesize = pos[14][0] - 0;
 					console.log(facesize);
 					if(facesize < 305) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 						audio1.play();
+						audio2.pause();
+						audio3.pause();
 					}else if(facesize > 340) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 						audio2.play();
+						audio1.pause();
+						audio3.pause();
 					}else if(emotion[5].value > 0.3) {
 						drawStamp(pos, stampclap, 50, 1, 0.0, 0.0);
 						drawStamp(pos, stampclap2, 0, 1, 0.0, -1.8);
 						audio3.play();
+						audio1.pause();
+						audio2.pause();
+					}else {
+						audio1.pause();
+						audio2.pause();
+						audio3.pause();
 					}
 					showEmotionData(emotion);
 					if (pos) { //ここで座標のポジションとる
@@ -299,6 +315,10 @@
 //						disp(pos);
 					}
 				}
+
+				document.getElementById("text-button").onclick = function() {
+  document.getElementById("text").innerHTML = "クリックされた！";
+};
 
 				//口部分の位置データを表示する
 				function showData(pos) {

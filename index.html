@@ -15,5 +15,15 @@
  <br><br>
  <input type="button" onclick="location.href='./main/face_video.html'" value="2人">
  <input type="button" onclick="location.href='./main/face_video1.html'" value="3人以上">
+
+ <input type="range" value="325" min="300" max="350" step="1"
+   oninput="document.getElementById('output1').value=this.value">
+
+ <output id="output1">325</output>
+<form action="./main/face_video.html">
+  <input type="text" id="output2" name="name" value="325"><br>
+  <input type="submit">
+</form>
+
 </body>
 </html>
