@@ -8,6 +8,17 @@
    <style type="text/css">
     body { text-align: center }
    </style>
+   <!-- ウェブアプリマニフェストの読み込み -->
+<link rel="manifest" href="manifest.json">
+<!-- ServiceWorkerの登録 -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then((reg) => {
+        console.log('Service worker registered.', reg);
+      });
+}
+</script>
  </head>
  <body>
  <h1>Please chose!</h1>
