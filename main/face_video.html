@@ -107,6 +107,7 @@
 		</script>
 	</head>
 	<body>
+		<div id="box">
 		<script src="./js/libs/utils.js"></script>
 		<script src="../build/clmtrackr.js"></script>
 		<script src="./js/libs/Stats.js"></script>
@@ -123,7 +124,7 @@
 				<output id="output1">325</output>
       </div>
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
-			<input type="button" onclick="location.href='./main/face_video1.html'" value="3人以上">
+			<input type="button" onclick="location.href='./face_video1.html'" value="3人以上">
 			<input type="button" onclick="history.back()" value="戻る">
 			<div id="container">
 				<video id="videoel" width="400" height="300" preload="auto" loop playsinline autoplay>
@@ -147,6 +148,7 @@
 			<hr>
 			<div id="dat2"></div>
 			<br>
+		</div>
 			<script>
 				var vid = document.getElementById('videoel');
 				var vid_width = vid.width;
@@ -166,6 +168,8 @@
 				var audio3 = new Audio();
 				audio3.src = "./sound/goodlook.mp3";
 				var facesize = 0;
+				var back = new Image();
+				back.src = "./media/alert.jpg";
 
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
@@ -290,11 +294,16 @@
 					console.log(facesize);
 					if(facesize < 305) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
+//						document.getElementById('box').style.backgroundColor = 'blue';
+						changePageBgImage('url(./media/alert.jpg)');
 						audio1.play();
 						audio2.pause();
 						audio3.pause();
 					}else if(facesize > 340) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
+//						drawStamp(pos, back, 0, 1, 0.0, -1.8);
+//						changePageBgColor('blue');
+					changePageBgImage('url(./media/alert.jpg)');
 						audio2.play();
 						audio1.pause();
 						audio3.pause();
@@ -305,6 +314,8 @@
 						audio1.pause();
 						audio2.pause();
 					}else {
+//						changePageBgColor('#f0f0f0');
+						changePageBgImage('url(./media/white.jpg)');
 						audio1.pause();
 						audio2.pause();
 						audio3.pause();
@@ -319,6 +330,13 @@
 				document.getElementById("text-button").onclick = function() {
   document.getElementById("text").innerHTML = "クリックされた！";
 };
+//背景色を変える
+//			function changePageBgColor( newColor ) {
+//			document.body.style.backgroundColor = newColor;
+//			}
+			function changePageBgImage( img ) {
+				document.body.style.backgroundImage = img;
+			}
 
 				//口部分の位置データを表示する
 				function showData(pos) {
