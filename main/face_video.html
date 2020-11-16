@@ -284,7 +284,7 @@
 					overlayCC.clearRect(0, 0, vid_width, vid_height);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
 					var pos = ctrack.getCurrentPosition();
-					showData(pos);
+//					showData(pos);
 //					drawStamp(pos, stampclap, 62, 2.5, 0.0, 0.0);
 //					drawStamp(pos, stampclap2, 33, 3.0, 0.0, -1.8);
 					var parameters = ctrack.getCurrentParameters();
@@ -320,16 +320,13 @@
 						audio2.pause();
 						audio3.pause();
 					}
-					showEmotionData(emotion);
+//					showEmotionData(emotion);
 					if (pos) { //ここで座標のポジションとる
 						ctrack.draw(overlay);
 //						disp(pos);
 					}
 				}
 
-				document.getElementById("text-button").onclick = function() {
-  document.getElementById("text").innerHTML = "クリックされた！";
-};
 //背景色を変える
 //			function changePageBgColor( newColor ) {
 //			document.body.style.backgroundColor = newColor;
