@@ -124,6 +124,8 @@
 				<output id="output1">325</output>
       </div> -->
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+			<input type="range" id="barfar" min="300" max="500" step="1" value="400">
+			<input type="range" id="barclose" min="400" max="600" step="1" value="500">
 			<br/><br/>
 <!--			<input type="button" onclick="location.href='./face_video1.html'" value="3人以上">
 			<input type="button" onclick="history.back()" value="戻る"> -->
@@ -171,6 +173,8 @@
 				var facesize = 0;
 				var back = new Image();
 				back.src = "./media/alert.jpg";
+				const inputfar = document.getElementById('barfar');
+				const inputclose = document.getElementById('barclose');
 
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
@@ -294,20 +298,22 @@
 					facesize = pos[14][0] - 0;
 					console.log(facesize);
 //					if(facesize < 305) {
-					if(facesize < 500) {
+					if(facesize < inputfar.value) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						document.getElementById('box').style.backgroundColor = 'blue';
 						changePageBgImage('url(./media/alert.jpg)');
 						audio1.play();
+						audio1.correntTime = 0;
 						audio2.pause();
 						audio3.pause();
 //					}else if(facesize > 340) {
-}else if(facesize > 540) {
+					}else if(facesize > inputclose.value) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						drawStamp(pos, back, 0, 1, 0.0, -1.8);
 //						changePageBgColor('blue');
 					changePageBgImage('url(./media/alert.jpg)');
 						audio2.play();
+						audio2.correntTime = 0;
 						audio1.pause();
 						audio3.pause();
 					}else if(emotion[5].value > 0.3) {
