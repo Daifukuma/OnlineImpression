@@ -115,7 +115,7 @@
 		<script src="../models/model_pca_20_svm.js"></script>
 
 		<div id="content">
-			<h2>Smile 判定(ギャラリービュー用/自然言語)</h2>
+			<h2>Smile 判定(ギャラリービュー用/警告音)</h2>
       <div id="option">
       </div>
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
@@ -155,11 +155,11 @@
 				stampclap2.src = "./media/clap2.png";
 				stampwarn.src = "./media/warn.png";
 				var audio1 = new Audio();
-				audio1.src = "./sound/toofar.mp3";
+				audio1.src = "./sound/al_far.mp3";
 				var audio2 = new Audio();
-				audio2.src = "./sound/tooclose.mp3";
+				audio2.src = "./sound/al_close.mp3";
 				var audio3 = new Audio();
-				audio3.src = "./sound/goodlook.mp3";
+				audio3.src = "./sound/karojin.mp3";
 
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
