@@ -56,7 +56,7 @@
 
 			.btn {
 				font-family: 'Lato';
-				font-size: 16px;
+				font-size: 30px;
 			}
 
 			.hide {
@@ -116,7 +116,7 @@
 		<script src="../models/model_pca_20_svm.js"></script>
 
 		<div id="content">
-			<h2>Smile 判定(スピーカービュー用/自然言語)</h2>
+			<h2>Smile 判定(画面＋自然言語)</h2>
 <!--      <div id="option">
 				<input type="range" value="325" min="300" max="350" step="1"
 					oninput="document.getElementById('output1').value=this.value">
@@ -124,7 +124,9 @@
 				<output id="output1">325</output>
       </div> -->
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+			　　　　　　　　　　
 			<input type="range" id="barfar" min="300" max="500" step="1" value="400">
+			　　　　　　　　　　
 			<input type="range" id="barclose" min="400" max="600" step="1" value="500">
 			<br/><br/>
 <!--			<input type="button" onclick="location.href='./face_video1.html'" value="3人以上">

@@ -116,7 +116,7 @@
 		<script src="../models/model_pca_20_svm.js"></script>
 
 		<div id="content">
-			<h2>Smile 判定(スピーカービュー用/警告音)</h2>
+			<h2>サポートシステム(警告音のみ)</h2>
 <!--      <div id="option">
 				<input type="range" value="325" min="300" max="350" step="1"
 					oninput="document.getElementById('output1').value=this.value">
@@ -169,8 +169,8 @@
 				var audio3 = new Audio();
 				audio3.src = "./sound/karojin.mp3";
 				var facesize = 0;
-				var back = new Image();
-				back.src = "./media/alert.jpg";
+//				var back = new Image();
+//				back.src = "./media/alert.jpg";
 
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
@@ -296,7 +296,7 @@
 					if(facesize < 305) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						document.getElementById('box').style.backgroundColor = 'blue';
-						changePageBgImage('url(./media/alert.jpg)');
+//						changePageBgImage('url(./media/alert.jpg)');
 						audio1.play();
 						audio2.pause();
 						audio3.pause();
@@ -304,7 +304,7 @@
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						drawStamp(pos, back, 0, 1, 0.0, -1.8);
 //						changePageBgColor('blue');
-					changePageBgImage('url(./media/alert.jpg)');
+//					changePageBgImage('url(./media/alert.jpg)');
 						audio2.play();
 						audio1.pause();
 						audio3.pause();
@@ -312,12 +312,11 @@
 						drawStamp(pos, stampclap, 50, 1, 0.0, 0.0);
 						drawStamp(pos, stampclap2, 0, 1, 0.0, -1.8);
 						audio3.play();
-						audio3.loop = false;
 						audio1.pause();
 						audio2.pause();
 					}else {
 //						changePageBgColor('#f0f0f0');
-						changePageBgImage('url(./media/white.jpg)');
+//						changePageBgImage('url(./media/white.jpg)');
 						audio1.pause();
 						audio2.pause();
 						audio3.pause();
@@ -333,9 +332,9 @@
 //			function changePageBgColor( newColor ) {
 //			document.body.style.backgroundColor = newColor;
 //			}
-			function changePageBgImage( img ) {
-				document.body.style.backgroundImage = img;
-			}
+//			function changePageBgImage( img ) {
+//				document.body.style.backgroundImage = img;
+//			}
 
 				//口部分の位置データを表示する
 				function showData(pos) {
