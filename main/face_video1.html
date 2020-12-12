@@ -120,9 +120,9 @@
       </div>
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
 
-			<input type="range" id="barfar" min="300" max="500" step="1" value="400">
+			<input type="range" id="barfar" min="200" max="500" step="1" value="400">
 			　　　　　　　　　　
-			<input type="range" id="barclose" min="400" max="600" step="1" value="500">
+			<input type="range" id="barclose" min="300" max="400" step="1" value="300">
 
 			<input type="button" onclick="location.href='./face_video1.html'" value="リセット">
 			<div id="container">
@@ -283,14 +283,28 @@
 					if(facesize < inputfar.value) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 						audio1.play();
+						audio1.correntTime = 0;
+						audio2.pause();
+						audio3.pause();
 //					}else if(facesize > 380) {
 					}else if(facesize > inputclose.value) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 						audio2.play();
+						audio2.correntTime = 0;
+						audio1.pause();
+						audio3.pause();
 					}else if(emotion[5].value > 0.3) {
 						drawStamp(pos, stampclap, 50, 1, 0.0, 0.0);
 						drawStamp(pos, stampclap2, 0, 1, 0.0, -1.8);
 						audio3.play();
+						audio1.pause();
+						audio2.pause();
+					}else {
+//						changePageBgColor('#f0f0f0');
+//						changePageBgImage('url(./media/white.jpg)');
+						audio1.pause();
+						audio2.pause();
+						audio3.pause();
 					}
 					showEmotionData(emotion);
 					if (pos) { //ここで座標のポジションとる
