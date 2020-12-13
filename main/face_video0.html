@@ -124,17 +124,19 @@
 				<output id="output1">325</output>
       </div> -->
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+
+			<input type="range" id="barfar" min="200" max="500" step="1" value="320">
 			　　　　　　　　　　
-			<input type="range" id="barfar" min="300" max="500" step="1" value="400">
-			　　　　　　　　　　
-			<input type="range" id="barclose" min="400" max="600" step="1" value="500">
+			<input type="range" id="barclose" min="200" max="500" step="1" value="340">
+
+			<input type="button" onclick="location.href='./face_video1.html'" value="リセット">
 			<br/><br/>
 <!--			<input type="button" onclick="location.href='./face_video1.html'" value="3人以上">
 			<input type="button" onclick="history.back()" value="戻る"> -->
 			<div id="container">
-				<video id="videoel" width="600" height="450" preload="auto" loop playsinline autoplay>
+				<video id="videoel" width="400" height="300" preload="auto" loop playsinline autoplay>
 				</video>
-				<canvas id="overlay" width="600" height="450"></canvas>
+				<canvas id="overlay" width="400" height="300"></canvas>
 			</div>
 <!--			<div id="text-button"><p id="text">クリック</p></div> -->
 			<br/>
@@ -313,7 +315,7 @@
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						drawStamp(pos, back, 0, 1, 0.0, -1.8);
 //						changePageBgColor('blue');
-					changePageBgImage('url(./media/alert.jpg)');
+					changePageBgImage('url(./media/warn.png)');
 //						audio2.play();
 //						audio2.correntTime = 0;
 //						audio1.pause();

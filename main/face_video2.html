@@ -124,6 +124,12 @@
 				<output id="output1">325</output>
       </div> -->
 			<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
+
+			<input type="range" id="barfar" min="200" max="500" step="1" value="320">
+			　　　　　　　　　　
+			<input type="range" id="barclose" min="200" max="500" step="1" value="340">
+
+			<input type="button" onclick="location.href='./face_video2.html'" value="リセット">
 			<br/><br/>
 <!--			<input type="button" onclick="location.href='./face_video1.html'" value="3人以上">
 			<input type="button" onclick="history.back()" value="戻る"> -->
@@ -171,6 +177,8 @@
 				var facesize = 0;
 //				var back = new Image();
 //				back.src = "./media/alert.jpg";
+const inputfar = document.getElementById('barfar');
+const inputclose = document.getElementById('barclose');
 
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
@@ -293,14 +301,14 @@
 //					var facesize = 0;
 					facesize = pos[14][0] - 0;
 					console.log(facesize);
-					if(facesize < 305) {
+					if(facesize < inputfar.value) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						document.getElementById('box').style.backgroundColor = 'blue';
 //						changePageBgImage('url(./media/alert.jpg)');
 						audio1.play();
 						audio2.pause();
 						audio3.pause();
-					}else if(facesize > 340) {
+					}else if(facesize > inputclose.value) {
 						drawStamp(pos, stampwarn, 50, 1, 0.0, 0.0);
 //						drawStamp(pos, back, 0, 1, 0.0, -1.8);
 //						changePageBgColor('blue');
