@@ -132,6 +132,8 @@
 				<canvas id="overlay" width="400" height="300"></canvas>
 			</div>
 			<br/>
+			<a href="javascript:void(0);" onclick="Volume(1);">音量を上げる</a><br />
+  <a href="javascript:void(0);" onclick="Volume(-1);">音量を下げる</a><br />
 				<div id="nogum" class="nogum">
 					<p>
 						There was some problem trying to capture your webcamera, please check that your browser supports WebRTC. Using a fallback video instead. To try it out:
@@ -168,7 +170,30 @@
 				const inputfar = document.getElementById('barfar');
 				const inputclose = document.getElementById('barclose');
 
-
+				function Volume(flag) {
+      if (0 < flag) {
+        if (0.9 < audio1.volume) {
+          audio1.volume = 1;
+					audio2.volume = 1;
+					audio3.volume = 1;
+        } else {
+          audio1.volume += 0.1;
+					audio2.volume += 0.1;
+					audio3.volume += 0.1;
+        }
+      } else {
+        if (audio1.volume < 0.1) {
+          audio1.volume = 0;
+					audio2.volume = 0;
+					audio3.volume = 0;
+        }
+        else {
+          audio1.volume -= 0.1;
+					audio2.volume -= 0.1;
+					audio3.volume -= 0.1;
+        }
+      }
+    }
 				/*********** Setup of video/webcam and checking for webGL support *********/
 
 				function enablestart() {
