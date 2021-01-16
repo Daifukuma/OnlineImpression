@@ -114,7 +114,7 @@
 			  -webkit-box-shadow: 0 2px 0 #cd5c5c;
 			  box-shadow: 0 2px 0 #cd5c5c;
 			}
-			
+
 			.btn2 {
 				background-color: #f4f4f4;
 				font-family: 'Lato';
@@ -163,7 +163,7 @@
 			  color: #bbb;
 			  font-size: 18px;
 			}
-			
+
 			#close {
 				display: block;
 				margin-top: -80px;
@@ -231,12 +231,12 @@
 			<div id="bbar">
 			<div id="close">
 				<h5>近さ</h5>
-				<input type="range" id="barfar" min="290" max="330" step="1" value="310" oninput="document.getElementById('output1').value=this.value">
+				<input type="range" id="barfar" min="290" max="530" step="1" value="510" oninput="document.getElementById('output1').value=this.value">
 				<output id ="output1">310</output>
 			</div>
 			<div id="far">　
 				<h5>遠さ</h5>
-				<input type="range" id="barclose" min="320" max="360" step="1" value="340" oninput="document.getElementById('output2').value=this.value">
+				<input type="range" id="barclose" min="320" max="660" step="1" value="640" oninput="document.getElementById('output2').value=this.value">
 				<output id ="output2">340</output>
 			</div>
 			</div>
@@ -300,7 +300,7 @@
 				back.src = "./media/alert.jpg";
 				const inputfar = document.getElementById('barfar');
 				const inputclose = document.getElementById('barclose');
-				
+
 				function Volume(flag) {
 				  if (0 < flag) {
 					if (0.9 < audio1.volume) {
